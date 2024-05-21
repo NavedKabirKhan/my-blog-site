@@ -1,0 +1,62 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Blog Post styles */
+#blog-posts {
+    margin: 20px 0;
+}
+
+.blog-post {
+    background: #fff;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 24px;
+}
+
+.blog-post p {
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #666;
+}
+
+.blog-post small {
+    display: block;
+    margin-top: 10px;
+    color: #999;
+}
+
+.blog-post img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+
+    </head>
+    <body>
+        <div id="blog-posts"></div>
+        <script>
+            // Replace with your own Contentful space ID and access token
+            const client = contentful.createClient({
+                space: 'j7rtkgr9jry6',
+                accessToken: 'CFPAT-vV7kT4yQ8pCdANw0uwz08QpfHybps5bpZmGZGTnx5jw'
+            });
+    
+            // Function to render posts
+            function renderPosts(posts) {
+                const blogContainer = document.getElementById('blog-posts');
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.innerHTML = `
+                        <h2>${post.fields.title}</h2>
+                        <p>${post.fields.body}</p>
+                        <p><small>Published on: ${new Date(post.fields.publishedDate).toDateString()}</small></p>
+                        <hr>
+                    `;
+                    blogContainer.appendChild(postElement);
+                });
+            }
+    
+            // Fetch posts from Contentful
+            client.getEntries({ content_type: 'blogPost' })
+                .then(response => {
+                    renderPosts(response.items);
+                })
+                .catch(console.error);
+        </script>
+    </body>
+    </html>
+    
